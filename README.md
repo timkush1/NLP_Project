@@ -24,15 +24,14 @@ This work contributes to enhancing multilingual NLP systems, ensuring that LLMs 
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Related Work](#related-work)
-3. [Methodology](#methodology)
-4. [Experiments](#experiments)
-5. [Results and Observations](#results-and-observations)
-6. [Key Insights and Discussion](#key-insights-and-discussion)
-7. [Conclusion](#conclusion)
-8. [Limitations](#limitations)
-9. [Acknowledgments](#acknowledgments)
-10. [References](#references)
+2. [Methodology](#methodology)
+3. [Experiments](#experiments)
+4. [Results and Observations](#results-and-observations)
+5. [Key Insights and Discussion](#key-insights-and-discussion)
+6. [Conclusion](#conclusion)
+7. [Limitations](#limitations)
+8. [Acknowledgments](#acknowledgments)
+9. [References](#references)
 
 ---
 
@@ -44,20 +43,6 @@ This project systematically explores these challenges by:
 2. Testing strategies such as intermediary translation and Chain of Thought (CoT) reasoning to enhance multilingual capabilities.
 
 Our goal is to improve the multilingual proficiency of LLMs, making them reliable tools for an interconnected world.
-
----
-
-## Related Work
-### Challenges in Multilingual NLP
-High-resource languages benefit from extensive pretraining, while low-resource languages often suffer from limited generalization capabilities. Evaluation frameworks for multilingual models are often benchmark-specific and fail to address deeper linguistic structures, particularly for underrepresented languages.
-
-### Strategies for Cross-Lingual Performance Enhancement
-- **Cross-Lingual Thought Prompting (XLT):** Structured reasoning prompts that improve performance in low-resource languages but require extensive resources.
-- **Transfer Learning:** Fine-tuning multilingual models with high-resource language data significantly boosts performance for low-resource tasks.
-
-Despite progress, multilingual models still face limitations in linguistic generalization, requiring more robust strategies.
-
----
 
 ---
 
