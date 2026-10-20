@@ -1,6 +1,10 @@
-# NLP_Project
+# Multilingual Knowledge Transfer in Language Models
 
-# Multi-lingual Knowledge Transfer in Large Language Models
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/timkush1/NLP_Project/blob/main/MLLM_NLP_Project.ipynb)
+![Python](https://img.shields.io/badge/Python-3-blue)
+![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Transformers-yellow)
+
+Do question-answering skills learned in English transfer to other languages? This project fine-tunes **mBERT** on SQuAD (English) and evaluates it on **MLQA** in 7 languages. It compares zero-shot transfer, translate-test, and Chain-of-Thought prompting.
 
 ### Authors
 - **Tim Kushmaro** - Tel-Aviv University ([timk@mail.tau.ac.il](mailto:timk@mail.tau.ac.il))
@@ -18,7 +22,7 @@ The findings reveal that:
 
 This work contributes to enhancing multilingual NLP systems, ensuring that LLMs can achieve more equitable performance across various languages.
 
-[View the full code repository here.](https://github.com/timkush1/NLP_Project)
+All code is in [`MLLM_NLP_Project.ipynb`](MLLM_NLP_Project.ipynb).
 
 ---
 
@@ -27,11 +31,12 @@ This work contributes to enhancing multilingual NLP systems, ensuring that LLMs 
 2. [Methodology](#methodology)
 3. [Experiments](#experiments)
 4. [Results and Observations](#results-and-observations)
-5. [Key Insights and Discussion](#key-insights-and-discussion)
-6. [Conclusion](#conclusion)
-7. [Limitations](#limitations)
-8. [Acknowledgments](#acknowledgments)
-9. [References](#references)
+5. [Running the Notebook](#running-the-notebook)
+6. [Key Insights and Discussion](#key-insights-and-discussion)
+7. [Conclusion](#conclusion)
+8. [Limitations](#limitations)
+9. [Acknowledgments](#acknowledgments)
+10. [References](#references)
 
 ---
 
@@ -151,13 +156,36 @@ Three distinct configurations were explored:
 
 ---
 
-### Figures
-1. **F1 Score Heatmap Across Languages**
-   - Visualizes performance disparities.
-2. **Exact Match Heatmap Across Languages**
-   - Highlights accuracy differences.
+### Results by Language
+
+| Configuration | Avg F1 | Avg EM |
+|---------------|:------:|:------:|
+| Zero-shot mBERT | **55.9** | **41.2** |
+| Translate-test mBERT (non-English only) | 53.1 | 32.2 |
+| CoT-test BERT | 45.9 | 31.8 |
+
+Translate-test gives the biggest gains on the languages furthest from English. F1 goes from 37.3 to **46.0** in Chinese, from 45.1 to **49.6** in Arabic, and from 46.3 to **51.9** in Hindi.
+
+<p align="center">
+  <img src="images/f1_heatmap.png" alt="F1 score heatmap across languages and models" width="85%"/>
+</p>
+<p align="center">
+  <img src="images/em_heatmap.png" alt="Exact Match heatmap across languages and models" width="85%"/>
+</p>
 
 ---
+
+## Running the Notebook
+
+Open the notebook in [Google Colab](https://colab.research.google.com/github/timkush1/NLP_Project/blob/main/MLLM_NLP_Project.ipynb) with a GPU runtime, or run it locally:
+
+```bash
+pip install datasets transformers evaluate torch pandas matplotlib seaborn
+jupyter notebook MLLM_NLP_Project.ipynb
+```
+
+The MLQA and SQuAD datasets download automatically through Hugging Face `datasets`.
+
 ---
 
 ## Key Insights and Discussion
@@ -215,7 +243,7 @@ This study demonstrates that **translation-enhanced evaluation** effectively mit
 
 ## Limitations
 This project has several limitations:
-1. **Language Coverage:** Focused on seven languages (English, Arabic, German, Spanish, Hindi, Swahili, and Mandarin Chinese). Many low-resource languages remain unexplored.
+1. **Language Coverage:** Focused on seven languages (English, Arabic, German, Spanish, Hindi, Vietnamese, and Chinese). Many low-resource languages remain unexplored.
 2. **Translation Challenges:** Translation steps occasionally introduced semantic drift, impacting accuracy.
 3. **Generalization:** Results were evaluated primarily on the MLQA dataset and may not generalize to specialized domains (e.g., legal or medical).
 4. **Chain of Thought Prompting:** CoT methods require adaptation for low-resource languages with rich morphology and complex syntax.
@@ -232,9 +260,3 @@ We extend our heartfelt thanks to **Maor Ivgi** for his invaluable guidance and 
 2. S. Rajaee and C. Monz, “Analyzing the evaluation of cross-lingual knowledge transfer in multilingual language models,” 2024. [Available Online](https://aclanthology.org/2024.eacl-long.177/)
 3. F. Wang, K.-H. Huang, K.-W. Chang, and M. Chen, “Self-augmentation improves zero-shot cross-lingual transfer,” 2023. [Available Online](https://arxiv.org/abs/2309.10891)
 4. N. Arivazhagan et al., “Massively multilingual neural machine translation in the wild: Findings and challenges,” 2019. [Available Online](https://arxiv.org/abs/1907.05019)
-
----
-
-
-
-
